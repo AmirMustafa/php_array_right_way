@@ -172,13 +172,11 @@ b. Without callbacks: remove empty values i.e. 0
 
 ```
 <?php
-$numbers = [20, -3, 0, -99, 55];
-$notEmpty = array_filter($numbers, function ($number) {
-	return $number > 0;
-});
-echo '<pre>';
-print_r($notEmpty);
-  ?>
+$numbers = [-1, 0, 1];
+ 
+$not_empty = array_filter($numbers);
+ 
+print_r($not_empty); // [0 => -1, 2 => 1]
 
 o/p:
 Array
