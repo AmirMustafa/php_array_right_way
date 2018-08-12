@@ -1,9 +1,7 @@
 # php_array_right_way
 PHP - Working with PHP Array Right Ways
 
-Here I am going to make a list of common PHP array functions with examples of usage and best practices.
-Every PHP developer must know how to use them and how to combine array functions to make code readable and
-short.
+Here friends I am sharing some inportant PHP array functions came accross reading. These inbuilt functions are very powerful, I guess every PHP developer should have idea about.
 
 <br><br>
 ## The Basics
