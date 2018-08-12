@@ -195,7 +195,7 @@ Array
 
 ```
 
-<b>10. array_unique()</b><br>
+<b>9. array_unique()</b><br>
  You can get only unique values from an array using the array_unique() function. Notice that the function will preserve the keys of the first unique elements:<br>
 
 ```
@@ -217,7 +217,7 @@ Array
 )
 
 ```
-<b>array_columns()</b><br>
+<b>10. array_columns()</b><br>
  you can get a list of column values from a multi-dimensional array, like an answer from a SQL database or an import from a CSV file. Just pass an array and column name:<br>
 
 ```
@@ -324,7 +324,7 @@ print_r($merge);
 // )
 
 ```
-<b> array_diff()</b><br>
+<b>14. array_diff()</b><br>
 Removes 2nd array value from 1st array. If some extra values are there in 2nd array that is left as it is
 
 ```
@@ -336,7 +336,7 @@ print_r($diff); // [0 => 1, 1 => 2]
 
 
 ```
-<b> array_intersect()</b><br>
+<b>15. array_intersect()</b><br>
 The common value between array1 and array2 is shown
 
 ```
@@ -348,7 +348,7 @@ print_r($intersect);  // [2 => 3, 3 => 4]
 
 ```
 ## Do the Math with Array Values
-<b> array_sum()</b><br>
+<b>16. array_sum()</b><br>
 Use array_sum() to get a sum of array values
 
 ```
@@ -357,7 +357,7 @@ $numbers = [1, 2, 3, 4, 5];
 echo(array_sum($numbers)); // 15
 
 ```
-<b> array_product()</b><br>
+<b>17. array_product()</b><br>
 Use  array_product() to multiply them
 
 ```
@@ -366,7 +366,7 @@ $numbers = [1, 2, 3, 4, 5];
 echo(array_product($numbers)); // 120
 
 ```
-<b> array_reduce()</b><br>
+<b>18. array_reduce()</b><br>
 create your own formula with array_reduce():<br>
 Eg1. <br>
 
@@ -400,7 +400,7 @@ var_dump(array_reduce($a, "product", 10)); // int(1200), because: 10*1*2*3*4*5
 var_dump(array_reduce($x, "sum", "No data to reduce")); // string(17) "No data to reduce"
 
 ```
-<b>array_count_values()</b><br>
+<b>19. array_count_values()</b><br>
 To count the values of array how much time it is repeated
 ```
 $things = ['apple', 'apple', 'banana', 'tree', 'tree', 'tree'];
@@ -419,7 +419,7 @@ print_r($values);
 
 ## Generating Arrays
 
-<b>array_fill()</b><br>
+<b>20. array_fill()</b><br>
 generate an array with given size array_fill() is used
 Eg
 ```
@@ -430,7 +430,7 @@ $bind = array_fill(0, 5, 1);	// 3rd parameter is common to all
 print_r($bind); // [1, 1, 1, 1, 1]
 
 ```
-<b>range()</b><br>
+<b>21. range()</b><br>
 To generate an array with range of keys and values like day hours or letters, use range()
 ```
 $letters = range('a', 'z');
@@ -443,11 +443,73 @@ print_r($hours); // [0, 1, 2, ..., 23]
 
 
 
-<b>array_slice()</b><br>
+<b>22. array_slice()</b><br>
 To get part of an array we use array_slice(), like get first 3 element
 ```
 $numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 $top = array_slice($numbers, 0, 3);	1st para – array, 2nd para – starting index, 3rd para – till which index
 print_r($top); // [1, 2, 3]
 
+```
+<b>23. sort(), rsort(), asort(), ksort(), arsort(), krsort();</b><br>It is good to remember that every sorting function in PHP works with arrays by a reference and returns true on success or false on failure. There's a basic sorting function called sort(), and it sorts values in ascending order without preserving keys. The sorting function can be prepended by the following letters:<br>
+•	sort() - sort arrays in ascending order<br>
+•	rsort() - sort arrays in descending order<br>
+•	asort() - sort associative arrays in ascending order, according to the value<br>
+•	ksort() - sort associative arrays in ascending order, according to the key<br>
+•	arsort() - sort associative arrays in descending order, according to the value<br>
+•	krsort() - sort associative arrays in descending order, according to the key<br>
+
+## Combining Array Functions Like a Boss
+a.  The real magic begins when you start to combine array functions. Here is how you can trim and remove empty values in just a single line of code with array_filter() and array_map()
+
+```
+$values = ['say  ', '  bye', ' ', ' to', ' spaces ', '   '];
+ 
+$words = array_filter(array_map('trim', $values));
+print_r($words); // ['say', 'bye', 'to', 'spaces']
+
+```
+b.  To create an id to a title map from an array of models, we can use a combination of array_combine() and array_column():
+
+```
+$models = [$model1, $model2, $model3];
+ 
+$id_to_title = array_combine(
+    array_column($models, 'id'),
+    array_column($models, 'title')
+);
+
+```
+
+c.  To get the top three values of an array, we can use array_count_values(), arsort(), and array_slice():
+
+```$letters = ['a', 'a', 'a', 'a', 'b', 'b', 'c', 'd', 'd', 'd', 'd', 'd'];
+ 
+$values = array_count_values($letters); // get key to count array
+arsort($values); // sort descending preserving key
+$top = array_slice($values, 0, 3); // get top 3
+ 
+print_r($top);
+// Array
+// (
+//     [d] => 5
+//     [a] => 4
+//     [b] => 2
+// )
+
+```
+d.  It is easy to use array_sum() and array_map() to calculate the sum of order in a few rows:
+
+```
+$order = [
+    ['product_id' => 1, 'price' => 99, 'count' => 1],
+    ['product_id' => 2, 'price' => 50, 'count' => 2],
+    ['product_id' => 2, 'price' => 17, 'count' => 3],
+];
+ 
+$sum = array_sum(array_map(function($product_row) {
+    return $product_row['price'] * $product_row['count'];
+}, $order));
+ 
+print_r($sum); // 250
 ```
