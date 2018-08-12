@@ -1,7 +1,7 @@
 # php_array_right_way
 PHP - Working with PHP Array Right Ways
 
-Here friends I am sharing some inportant PHP array functions came accross reading. These inbuilt functions are very powerful, I guess every PHP developer should have idea about.
+Here friends I am sharing some important PHP array functions came accross reading. These inbuilt functions are very powerful, I guess every PHP developer should have idea about.
 
 <br><br>
 ## The Basics
