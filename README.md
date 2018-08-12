@@ -451,11 +451,3 @@ $top = array_slice($numbers, 0, 3);	1st para – array, 2nd para – starting in
 print_r($top); // [1, 2, 3]
 
 ```
-$numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-$top = array_slice($numbers, 0, 3);	1st para – array, 2nd para – starting index, 3rd para – till which index
-print_r($top); // [1, 2, 3]
-```
-
-
-
-
